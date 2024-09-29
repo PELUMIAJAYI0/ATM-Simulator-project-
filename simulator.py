@@ -1,3 +1,13 @@
+def welcome():
+    print("...Main Menu...")
+    print("...Choose the following options...")
+    print("1. Cash Withdrwal")
+    print("2. Balance Inquiry")
+    print("3. Funds Transfer")
+    print("4. Bills Payment")
+    print("5. Mini Statement")
+    print("6. Other Options")
+
 def cash_withdrawal():
     print("...Withdrawal of cash...")
     amount = int(input("Enter the amount to withdraw---> $"))
@@ -158,7 +168,10 @@ def other_options():
         print("Card details will be sent to your email address")
     
     elif option == "7":
-        return 
+        return welcome()
+    
+    else:
+        print("Invalid option, please choose a valid option")
 
 
 
@@ -171,15 +184,37 @@ if len(user_pin) != 4:
 else:
     print("Welcome to Pelumi's ATM machine")
 
-print("...Main Menu...")
-print("...Choose the following options...")
-print("1. Cash Withdrwal")
-print("2. Balance Inquiry")
-print("3. Funds Transfer")
-print("4. Bills Payment")
-print("5. Mini Statement")
-print("6. Other Options")
+
 
 user_option = int(input("Please select your choice---> "))
+if user_option == "1":
+    print("You have chosen to withdraw cash")
+    print("_____________________________________")
+    cash_withdrawal()
+elif user_option == "2":
+    print("You have chosen to check your balance")
+    print("_____________________________________")
+    balance_inquiry()
+elif user_option == "3":
+    print("You have chosen to transfer funds")
+    print("__________________________________")
+    fund_transfer()
+elif user_option == "4":
+    print("You have chosen bills payment")
+    print("______________________________")
+    bills_payemnt()
+elif user_option == "5":
+    print("You have chosen mini statement")
+    print("_______________________________")
+    mini_statement()
+elif user_option == "6":
+    print("You have chosen other options")
+    print("______________________________")
+    other_options()
+else:
+    print("Invalid option, please choose a valid option")
+
+
+
 
 
