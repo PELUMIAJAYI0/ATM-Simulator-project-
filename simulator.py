@@ -177,16 +177,26 @@ def other_options():
 
 print("...You are welcome to Pelumi's ATM machine")
 print(" ")
-user_pin = print("Kindly input your pin---> ")
+user_pin = input("Kindly input your pin---> ")
 
-if len(user_pin) != 4:
-    print("Invalid pin, please try again")
+if user_pin is None:
+    print("Error: PIN is required to access transactions.")
 else:
-    print("Welcome to Pelumi's ATM machine")
+    if len(user_pin) != 4:
+        print("Error: PIN must be 4 digits.")
+    elif not user_pin.isdigit():
+        print("Error: PIN must be a numeric value.")
+    else:
+        # PIN is valid, allow access to transactions
+        print("PIN is valid. Access granted.")
+
+welcome()
+#else:
+ #   print("Welcome to Pelumi's ATM machine")
 
 
 
-user_option = int(input("Please select your choice---> "))
+user_option = input("Please select your choice---> ")
 if user_option == "1":
     print("You have chosen to withdraw cash")
     print("_____________________________________")
