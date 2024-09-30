@@ -28,15 +28,30 @@ def fund_transfer():
         print("You have chosen to transfer money to your own account")
     elif destination == "2":
         print("You have chosen to transfer money to other account")
-        acct_num = int(input("Enter the account number---> "))
-        if len(acct_num) != 10:
+        acct_num = input("Enter the account number---> ")
+        if acct_num is None:
+            print("Error: Account Number is required to transfer funds.")
+        else:
+            if len(acct_num) != 10:
+                print("Error: Account Number must be 10 digits.")
+            elif not acct_num.isdigit():
+                print("Error: Account Number must be a numeric value.")
+            else:
+                amt = int(input("Enter the transfer amount---> $"))
+                if amt > 150000:
+                    print("The amount is too high, please enter a lesser amount")
+                else:
+                    print("The transfer is successful")
+
+            
+        """if len(acct_num) != 10:
             print("Enter a valid ten digit account number")
         else:
             amt = int(input("Enter the transfer amount---> $"))
             if amt > 150000:
                 print("The amount is too high, please enter a lesser amount")
             else:
-                print("The transfer is successful")
+                print("The transfer is successful")"""
 
 def bills_payemnt():
     print("...Bills Payment...")
@@ -45,7 +60,7 @@ def bills_payemnt():
 
     if biller == "1":
         print("You have chosen to pay electricity bill")
-        elect = int(input("Enter meter number---> "))
+        elect = input("Enter meter number---> ")
         if elect.isdigit():
             elect_bill = int(input("Enter the amount to pay---> "))
             if elect_bill > 150000:
@@ -57,7 +72,7 @@ def bills_payemnt():
 
     elif biller == "2":
         print("You have chosen to pay water bill")
-        water = int(input("Enter water number---> "))
+        water = input("Enter water number---> ")
         if water.isdigit():
             water = int(input("Enter the amount to pay---> "))
             if water > 150000:
@@ -69,16 +84,22 @@ def bills_payemnt():
     
     elif biller == "3":
         print("You have chosen to pay phone bill")
-        phone = int(input("Enter phone number---> "))
-        if len(phone) != 11:
-            print("Enter the right eleven digit number")
+        phone = input("Enter mobile number---> ")
+        if phone is None:
+            print("Error: Mobile Number is required to process transaction.")
         else:
-            phone_bill = int(input("Enter the amount to pay---> $"))
-            if phone_bill > 150000:
-                print("The amount is too high, please enter a lesser amount")
+            if len(phone) != 11:
+                print("Error: Mobile Number must be 11 digits.")
+            elif not user_pin.isdigit():
+                print("Error: Mobile Number must be a numeric value.")
             else:
-                print("The payment is successful")
-    
+                print("Mobile Number is valid.")
+                print("-----------------------")
+                phone_bill = int(input("Enter the amount to pay---> $"))
+                if phone_bill > 150000:
+                     print("The amount is too high, please enter a lesser amount")
+                else:
+                    print("The payment is successful")
     else:
         print("Invalid choice, please choose a valid option")
 
@@ -88,7 +109,7 @@ def mini_statement():
     account_type = input(" ---> ")
     if account_type == "1":
         print("You have chosen to view your savings account mini statement")
-        savings = int(input("Enter your account number---> "))
+        savings = input("Enter your account number---> ")
         if savings.isdigit():
             print("Your mini savings statement is as follows:")
             print("Date | Debit | Credit | Balance")
@@ -101,7 +122,7 @@ def mini_statement():
     
     elif account_type == "2":
         print("You have chosen to view your current account mini statement")
-        current = int(input("Enter your account number---> "))
+        current = input("Enter your account number---> ")
         if current.isdigit():
             print("Your mini current statement is as follows:")
             print("Date | Debit | Credit | Balance")
@@ -135,15 +156,13 @@ def other_options():
     elif option == "3":
         print("You have chosen to change your pin")
         current_pin = int(input("Enter your current pin---> "))
-        if current_pin == user_pin:
-            new_pin = int(input("Enter your new pin---> "))
-            confirm_pin = int(input("Confirm your new pin---> "))
-            if new_pin == confirm_pin:
-                print("Pin changed successfully")
-            else:
-                print("Pin change failed, please try again")
-        else: 
-            print("Incorrect pin, please try again")
+        print("That is your current pin")
+        new_pin = int(input("Enter your new pin---> "))
+        confirm_pin = int(input("Confirm your new pin---> "))
+        if new_pin == confirm_pin:
+            print("Pin changed successfully")
+        else:
+            print("Pin change failed, please try again")
     
     elif option == "4":
         print("You have chosen to block your card")
@@ -175,7 +194,7 @@ def other_options():
 
 
 
-print("...You are welcome to Pelumi's ATM machine")
+print("...You are welcome to Pelumi's ATM machine...")
 print(" ")
 user_pin = input("Kindly input your pin---> ")
 
@@ -187,12 +206,9 @@ else:
     elif not user_pin.isdigit():
         print("Error: PIN must be a numeric value.")
     else:
-        # PIN is valid, allow access to transactions
         print("PIN is valid. Access granted.")
 
 welcome()
-#else:
- #   print("Welcome to Pelumi's ATM machine")
 
 
 
