@@ -43,16 +43,6 @@ def fund_transfer():
                 else:
                     print("The transfer is successful")
 
-            
-        """if len(acct_num) != 10:
-            print("Enter a valid ten digit account number")
-        else:
-            amt = int(input("Enter the transfer amount---> $"))
-            if amt > 150000:
-                print("The amount is too high, please enter a lesser amount")
-            else:
-                print("The transfer is successful")"""
-
 def bills_payemnt():
     print("...Bills Payment...")
     print("Choose the biller \n 1. Electricity \n 2. Water \n 3. Phone")
@@ -193,52 +183,62 @@ def other_options():
         print("Invalid option, please choose a valid option")
 
 
+while True:
+    print("...You are welcome to Pelumi's ATM machine...")
+    print(" ")
+    user_pin = input("Kindly input your pin---> ")
 
-print("...You are welcome to Pelumi's ATM machine...")
-print(" ")
-user_pin = input("Kindly input your pin---> ")
-
-if user_pin is None:
-    print("Error: PIN is required to access transactions.")
-else:
-    if len(user_pin) != 4:
-        print("Error: PIN must be 4 digits.")
-    elif not user_pin.isdigit():
-        print("Error: PIN must be a numeric value.")
+    if user_pin is None:
+        print("Error: PIN is required to access transactions.")
     else:
-        print("PIN is valid. Access granted.")
+        if len(user_pin) != 4:
+            print("Error: PIN must be 4 digits.")
+        elif not user_pin.isdigit():
+            print("Error: PIN must be a numeric value.")
+        else:
+            print("PIN is valid. Access granted.")
 
-welcome()
+    welcome()
 
 
 
-user_option = input("Please select your choice---> ")
-if user_option == "1":
-    print("You have chosen to withdraw cash")
-    print("_____________________________________")
-    cash_withdrawal()
-elif user_option == "2":
-    print("You have chosen to check your balance")
-    print("_____________________________________")
-    balance_inquiry()
-elif user_option == "3":
-    print("You have chosen to transfer funds")
-    print("__________________________________")
-    fund_transfer()
-elif user_option == "4":
-    print("You have chosen bills payment")
-    print("______________________________")
-    bills_payemnt()
-elif user_option == "5":
-    print("You have chosen mini statement")
-    print("_______________________________")
-    mini_statement()
-elif user_option == "6":
-    print("You have chosen other options")
-    print("______________________________")
-    other_options()
-else:
-    print("Invalid option, please choose a valid option")
+    user_option = input("Please select your choice---> ")
+    if user_option == "1":
+        print("You have chosen to withdraw cash")
+        print("_____________________________________")
+        cash_withdrawal()
+    elif user_option == "2":
+        print("You have chosen to check your balance")
+        print("_____________________________________")
+        balance_inquiry()
+    elif user_option == "3":
+        print("You have chosen to transfer funds")
+        print("__________________________________")
+        fund_transfer()
+    elif user_option == "4":
+        print("You have chosen bills payment")
+        print("______________________________")
+        bills_payemnt()
+    elif user_option == "5":
+        print("You have chosen mini statement")
+        print("_______________________________")
+        mini_statement()
+    elif user_option == "6":
+        print("You have chosen other options")
+        print("______________________________")
+        other_options()
+    else:
+        print("Invalid option, please choose a valid option")
+        
+    print("_______________________________________")
+
+    cont = input("Do you want to continue (yes/no)---> ")
+    if cont != "yes":
+        print("Exiting the ATM, please make sure you remove your card. Have a Productive Day :)")
+        break
+    else:
+        continue
+
 
 
 
