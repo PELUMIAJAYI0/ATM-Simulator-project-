@@ -1,6 +1,7 @@
 def welcome():
     print("...Main Menu...")
     print("...Choose the following options...")
+    print("----------------------------------")
     print("1. Cash Withdrwal")
     print("2. Balance Inquiry")
     print("3. Funds Transfer")
@@ -103,7 +104,7 @@ def mini_statement():
         if savings.isdigit():
             print("Your mini savings statement is as follows:")
             print("Date | Debit | Credit | Balance")
-            print("------------------------------------------------")
+            print("--------------------------------")
             print("2022-01-01 | 1000 | 500 | 15000")
             print("2022-01-02 | 2000 | 1000 | 160")
             print("2022-01-03 | 3000 | 2000 | 170")
@@ -116,7 +117,7 @@ def mini_statement():
         if current.isdigit():
             print("Your mini current statement is as follows:")
             print("Date | Debit | Credit | Balance")
-            print("------------------------------------------------")
+            print("--------------------------------")
             print("2022-01-01 | 1000 | 500 | 15000")
             print("2022-01-02 | 2000 | 1000 | 160")
             print("2022-01-03 | 3000 | 2000 | 170")
@@ -197,47 +198,44 @@ while True:
             print("Error: PIN must be a numeric value.")
         else:
             print("PIN is valid. Access granted.")
+            welcome()
 
-    welcome()
+            user_option = input("Please select your choice---> ")
+            if user_option == "1":
+                print("You have chosen to withdraw cash")
+                print("_____________________________________")
+                cash_withdrawal()
+            elif user_option == "2":
+                print("You have chosen to check your balance")
+                print("_____________________________________")
+                balance_inquiry()
+            elif user_option == "3":
+                print("You have chosen to transfer funds")
+                print("__________________________________")
+                fund_transfer()
+            elif user_option == "4":
+                print("You have chosen bills payment")
+                print("______________________________")
+                bills_payemnt()
+            elif user_option == "5":
+                print("You have chosen mini statement")
+                print("_______________________________")
+                mini_statement()
+            elif user_option == "6":
+                print("You have chosen other options")
+                print("______________________________")
+                other_options()
+            else:
+                print("Invalid option, please choose a valid option")
 
+            print("_______________________________________")
 
-
-    user_option = input("Please select your choice---> ")
-    if user_option == "1":
-        print("You have chosen to withdraw cash")
-        print("_____________________________________")
-        cash_withdrawal()
-    elif user_option == "2":
-        print("You have chosen to check your balance")
-        print("_____________________________________")
-        balance_inquiry()
-    elif user_option == "3":
-        print("You have chosen to transfer funds")
-        print("__________________________________")
-        fund_transfer()
-    elif user_option == "4":
-        print("You have chosen bills payment")
-        print("______________________________")
-        bills_payemnt()
-    elif user_option == "5":
-        print("You have chosen mini statement")
-        print("_______________________________")
-        mini_statement()
-    elif user_option == "6":
-        print("You have chosen other options")
-        print("______________________________")
-        other_options()
-    else:
-        print("Invalid option, please choose a valid option")
-        
-    print("_______________________________________")
-
-    cont = input("Do you want to continue (yes/no)---> ")
-    if cont != "yes":
-        print("Exiting the ATM, please make sure you remove your card. Have a Productive Day :)")
-        break
-    else:
-        continue
+            cont = input("Do you want to continue (yes/no)---> ")
+            if cont != "yes":
+                print("Exiting the ATM, please make sure you remove your card. Have a Productive Day :)")
+                break
+            else:
+                continue
 
 
 
